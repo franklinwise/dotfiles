@@ -1,0 +1,43 @@
+
+filetype plugin indent on
+
+"VISUAL
+set background=dark "colors will take this into account
+set noexpandtab "keep TABS!!
+set tabstop=4	"tabs are 4 spaces wide
+set number		"show line numbers
+set showcmd		"show command bar on bottom
+set cursorline	"highligh cursor line	
+set showmatch  	"highlights matching braces	
+set wildmenu	"auto completion for command menu
+
+
+syntax enable	"enables sytax processing
+
+let g:molokai_original = 1
+color peaksea
+"
+"set shell=bash\ --login
+
+"LEADER key remap
+let mapleader=","       " leader is comma, rather than \
+
+"SEARCH
+set hlsearch	"highlight search matches
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
+"REMAP ESCAPE
+inoremap <F12> <esc> 	"make f12 trigger escape in edit mode	
+"nnoremap = normal mode mapping
+nnoremap <leader>, :!
+nnoremap <leader>b :!go build<CR>
+
+"go-tools disables the red blob if there's an extra spacce somewhere
+let g:go_highlight_space_tab_error = 0
+
+" Syntax of these languages is fussy over tabs Vs spaces
+ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+
+ set term=ansi "otherwise arrow keys cause letters ABCD to be written

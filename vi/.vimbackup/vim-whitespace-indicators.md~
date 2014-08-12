@@ -1,0 +1,28 @@
++++
+date = 2014-08-11T03:00:17Z
+draft = true
+slug = "vi-tab-space-left-margin-colored"
+title = "vi - Left Margin Showing Solid Color "
+description = ""
+series = ["spf13 setup for go"]
++++
+# Tabs Showing up with extra white space after installing [sfp13](http://vim.spf13.com/)
+
+The situation looks like this:
+
+![Image with white highlights](/img/2014/vi-white-space-indicators.png "Example")
+
+The solution in this case is to remove the following plug-in from vundle:
+
+### ~/.vimrc.bundles.local 
+**Add:**
+```
+UnBundle 'nathanaelkane/vim-indent-guides'
+```
+
+**Run:**
+```
+$ vi
+ 
+  :PluginClean
+```

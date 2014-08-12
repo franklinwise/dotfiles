@@ -1,0 +1,34 @@
+package main
+
+import (
+	"encoding/json"
+	"net/http"
+
+	"github.com/krave-n/go/auth"
+	"github.com/krave-n/go/logging"
+)
+
+type SlowChangingDataHandler struct {
+	auth auth.AuthService `inject:""`
+	log  logging.Logger   `inject:""`
+}
+
+func (h SlowChangingDataHandler) Get(w http.ResponseWriter, r *http.Request) {
+
+	header := new(auth.DeviceAuthHeader)
+	if err := MapToStruct(r.Header, &header); err != nil {
+		panic(err)
+	}
+
+	authenticatedDevice := h.auth.AuthenticateDevice(header.AuthToken, header.DeviceUid, header.LocationId)
+
+	pong := &Pong{Message: "pong"}
+	message, _ := json.Marshal(pong)
+	w.Write([]byte(message))
+	log.Infom("Ping Received")
+}
+
+type RequestSlowChangingData struct {
+	Number  int    `json:"number,string"`
+	Message string `json:"message"`
+}

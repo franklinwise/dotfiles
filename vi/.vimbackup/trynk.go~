@@ -1,0 +1,104 @@
+package main
+
+import (
+	"flag"
+	"fmt"
+	"log"
+	"net/http"
+
+	"github.com/cihub/seelog"
+	"github.com/facebookgo/inject"
+	"github.com/gorilla/mux"
+	"github.com/krave-n/go/auth"
+	"github.com/krave-n/go/caching"
+	"github.com/krave-n/go/logging"
+	"github.com/krave-n/go/trynk/handling"
+)
+
+func setupHandlers(r *mux.Router) {
+	p := new(handling.PingHandler)
+	pc := new(handling.PingCacheHandler)
+	scd := new(handling.SlowChangingDataHandler)
+	r.HandleFunc("/ping", p.Get).Methods("GET")
+	r.HandleFunc("/ping/cache", pc.Get).Methods("GET")
+	r.HandleFunc("/sync/SlowChangingData", scd.Get).Methods("POST")
+}
+
+var (
+	port              = flag.String("port", "3000", "port to run the server on")
+	cacheAuthHost     = flag.String("cacheAuthHost", "localhost:6379", "the host for cached auth keys")
+	cacheSyncHost     = flag.String("cacheSyncHost", "localhost:6379", "the host for cached sync objects")
+	cacheAuthPassword = flag.String("cacheAuthPassword", "", "password to the cache auth service")
+	cacheSyncPassword = flag.String("cacheAuthSyncPassword", "", "password to the cache sync service")
+)
+
+type RootService struct {
+	SyncCache *caching.CacheService `inject:"syncCache"`
+	Auth      *auth.AuthService     `inject:""`
+}
+
+func main() {
+
+	defaultLogger, err := seelog.LoggerFromConfigAsFile("conf/logger.conf")
+	if err != nil {
+		log.Fatal(err)
+	}
+	logging.UseLogger(defaultLogger)
+	defer logging.FlushLog()
+
+	var g inject.Graph
+	var root RootService
+	logger := logging.NewService()
+	logger.Infom("Initializing...")
+
+	authCache := caching.NewService(*cacheAuthHost, *cacheAuthPassword)
+	syncCache := caching.NewService(*cacheSyncHost, *cacheSyncPassword)
+	authService := auth.NewService()
+
+	root.SyncCache = syncCache
+
+	p := new(handling.PingHandler)
+	pc := new(handling.PingCacheHandler)
+	scd := new(handling.SlowChangingDataHandler)
+	pc.Cache = syncCache
+
+	err = g.Provide(
+		&inject.Object{Value: &root, Name: "rootService"},
+		&inject.Object{Value: syncCache, Name: "syncCache"},
+		&inject.Object{Value: authCache, Name: "authCache"},
+		&inject.Object{Value: authService, Name: "authService"},
+		&inject.Object{Value: p, Name: "pingHandler"},
+		&inject.Object{Value: pc, Name: "pingCacheHandler"},
+		&inject.Object{Value: scd, Name: "slowChangingDataHanlder"},
+		&inject.Object{Value: logger, Name: "defaultLogger"})
+
+	if err != nil {
+		logger.Panic("Failed to load inital graph", err)
+	}
+
+	if err := g.Populate(); err != nil {
+		logger.Panic("Failed to populate graph", err)
+	}
+
+	logger.Infom("Starting up...")
+	router := mux.NewRouter()
+
+	router.HandleFunc("/ping", p.Get).Methods("GET")
+	router.HandleFunc("/ping/cache", pc.Get).Methods("GET")
+	router.HandleFunc("/sync/SlowChangingData", scd.Get).Methods("POST")
+	//	setupHandlers(router)
+	http.Handle("/", router)
+
+	logger.Info(&struct {
+		Message string
+		Port    string
+	}{
+		"Listening",
+		*port,
+	})
+
+	err = http.ListenAndServe(fmt.Sprintf(":%s", *port), nil)
+	if err != nil {
+		logger.Panic("ListenAndServe: ", err)
+	}
+}

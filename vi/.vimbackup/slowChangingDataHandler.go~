@@ -1,0 +1,37 @@
+package handling
+
+import (
+	"encoding/json"
+	"net/http"
+
+	"github.com/krave-n/go/auth"
+	"github.com/krave-n/go/logging"
+	"github.com/krave-n/go/trynk/util"
+)
+
+type SlowChangingDataHandler struct {
+	Auth auth.AuthService `inject:""`
+	Log  logging.Logger   `inject:""`
+}
+
+func (h SlowChangingDataHandler) Get(w http.ResponseWriter, r *http.Request) {
+	header := new(auth.DeviceAuthHeader)
+	if err := util.MapToStruct(r.Header, &header); err != nil {
+		panic(err)
+	}
+
+	d := h.auth.AuthenticateDevice(header.AuthToken, header.DeviceUid, header.LocationId)
+	if d == nil {
+		return
+	}
+
+	pong := &Pong{Message: "pong"}
+	message, _ := json.Marshal(pong)
+	w.Write([]byte(message))
+	h.log.Infom("Ping Received")
+}
+
+type RequestSlowChangingData struct {
+	Number  int    `json:"number,string"`
+	Message string `json:"message"`
+}

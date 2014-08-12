@@ -1,0 +1,9 @@
+<seelog minlevel="debug">
+    <outputs formatid="json">
+        <console />
+  		<rollingfile type="size" filename="log/app.log" maxsize="10200300" maxrolls="2" />
+    </outputs>
+	<formats>
+    	<format id="json" format="{&quot;when&quot;:&quot;%UTCDate(2006-01-02T15:04.05Z)&quot;,&quot;level&quot;:&quot;%Level&quot;,&quot;message&quot;:&quot;%Msg&quot;}%n"/>
+	</formats>
+</seelog>

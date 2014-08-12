@@ -1,0 +1,68 @@
+package handling
+
+import (
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"time"
+
+	"github.com/krave-n/go/caching"
+	"github.com/krave-n/go/logging"
+	"github.com/krave-n/go/trynk/util"
+)
+
+type Pong struct {
+	Message string `json:"message"`
+}
+
+type Ping struct {
+	Number  int    `json:"number,string"`
+	Message string `json:"message"`
+}
+
+const PingHandlerPath = "/ping"
+
+type HandlerContext struct {
+	Cache caching.CacheService `inject:""`
+	Log   logging.Logger       `inject:""`
+}
+
+type PingHandler struct {
+	Cache caching.CacheService `inject:"syncCache"`
+	Log   logging.Logger       `inject:""`
+}
+
+type PingCacheHandler struct {
+	Cache caching.CacheService `inject:"syncCache"`
+	Log   logging.Logger       `inject:""`
+}
+
+func (p *PingHandler) Get(w http.ResponseWriter, r *http.Request) {
+	p.Log.Info("Ping Received")
+
+	message, _ := json.Marshal(&Pong{Message: "pong"})
+	w.Write([]byte(message))
+
+	var pong Pong
+	pong.Message = fmt.Sprintf("pong %v", time.Now())
+	p.Cache.Set("last-request", pong)
+}
+
+func (p *PingCacheHandler) Get(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	ping := new(Ping)
+	if err := util.MapToStruct(r.Form, &ping); err != nil {
+		panic(err)
+	}
+
+	pong := new(Pong)
+	if err := p.Cache.Get("last-request", &pong); err != nil {
+		panic(err)
+	}
+
+	p.Log.Info(struct{ CachedValue string }{fmt.Sprintf("%#v", pong)})
+
+	pong.Message = pong.Message + " from cache"
+	message, _ := json.Marshal(pong)
+	w.Write([]byte(message))
+}

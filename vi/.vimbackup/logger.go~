@@ -1,0 +1,122 @@
+package logging
+
+import (
+	"encoding/json"
+	"errors"
+	"io"
+
+	seelog "github.com/cihub/seelog"
+)
+
+//even though Logger is an instance, all instances are using the same
+//singleton logger. it's unclear if this should stay this way
+var logger seelog.LoggerInterface
+
+type Logger struct {
+}
+
+type LogMessage struct {
+	Message string `json:"message"`
+	Error   string `json:"error,omitempty"`
+}
+
+func NewService() *Logger {
+	return new(Logger)
+}
+
+func (l *Logger) MarshalFail(err error) {
+	logger.Error(&LogMessage{"failed to Marshal object", err.Error()})
+}
+
+func (l *Logger) UnmarshalFailed(err error) {
+	logger.Error(&LogMessage{"failed to Unmarshal object", err.Error()})
+}
+
+func (l *Logger) Debug(m string) {
+	logger.Debug(m)
+}
+
+func (l *Logger) Debugf(m string, params ...interface{}) {
+	logger.Debugf(m, params)
+}
+
+func (l *Logger) Warn(m interface{}) {
+	if str, err := json.Marshal(m); err != nil {
+		l.UnmarshalFailed(err)
+		return
+	} else {
+		logger.Warn(string(str))
+	}
+}
+
+// Infom captures a simple message. If you are logging key value pairs,
+// use Info(m interface{})
+func (l *Logger) Infom(m string) {
+	l.Info(&LogMessage{Message: m})
+}
+
+// Info logs key value pairs, typically to JSON. Typically using an anonymous struct:
+//
+//		log.Info(struct{MyKey string}{MyKey:"value to capture"})
+func (l *Logger) Info(m interface{}) {
+	if str, err := json.Marshal(m); err != nil {
+		l.UnmarshalFailed(err)
+		return
+	} else {
+		logger.Info(string(str))
+	}
+}
+func (l *Logger) Error(m interface{}) {
+	if str, err := json.Marshal(m); err != nil {
+		l.UnmarshalFailed(err)
+		return
+	} else {
+		logger.Error(string(str))
+	}
+}
+
+func (l *Logger) Panic(m string, err error) {
+	if str, err := json.Marshal(&LogMessage{m, err.Error()}); err != nil {
+		l.UnmarshalFailed(err)
+		panic(err)
+	} else {
+		logger.Critical(string(str))
+		panic(err)
+	}
+}
+
+func init() {
+	DisableLog()
+}
+
+// DisableLog disables all library log output
+func DisableLog() {
+	logger = seelog.Disabled
+}
+
+// UseLogger uses a specified seelog.LoggerInterface to output library log.
+// Use this func if you are using Seelog logging system in your app.
+func UseLogger(newLogger seelog.LoggerInterface) {
+	logger = newLogger
+}
+
+// SetLogWriter uses a specified io.Writer to output library log.
+// Use this func if you are not using Seelog logging system in your app.
+func SetLogWriter(writer io.Writer) error {
+	if writer == nil {
+		return errors.New("Nil writer")
+	}
+
+	newLogger, err := seelog.LoggerFromWriterWithMinLevel(writer, seelog.TraceLvl)
+	if err != nil {
+		return err
+	}
+
+	UseLogger(newLogger)
+	return nil
+}
+
+// Call this before app shutdown
+func FlushLog() {
+	logger.Flush()
+}

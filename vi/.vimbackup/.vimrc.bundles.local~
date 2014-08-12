@@ -1,0 +1,8 @@
+Bundle 'fatih/vim-go'
+
+""REMOVE
+"auto completed braces frustrate me
+UnBundle 'Townk/vim-autoclose' 
+UnBundle 'spf13/vim-autoclose'
+"removes those aweful left margin solid color every time you tab.
+UnBundle 'nathanaelkane/vim-indent-guides' 

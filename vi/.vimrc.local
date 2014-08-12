@@ -11,7 +11,6 @@ set cursorline	"highligh cursor line
 set showmatch  	"highlights matching braces	
 set wildmenu	"auto completion for command menu
 
-
 syntax enable	"enables sytax processing
 
 let g:molokai_original = 1
@@ -36,8 +35,13 @@ nnoremap <leader>b :!go build<CR>
 "go-tools disables the red blob if there's an extra spacce somewhere
 let g:go_highlight_space_tab_error = 0
 
+"http://learnvimscriptthehardway.stevelosh.com/chapters/12.html
+"use hemisu colorscheme for markdown
+autocmd BufNewFile,BufRead *.md colorscheme hemisu
+autocmd BufEnter *.md :set background=light
+
 " Syntax of these languages is fussy over tabs Vs spaces
- autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 
  "set term=ansi "otherwise arrow keys cause letters ABCD to be written

@@ -1,11 +1,12 @@
+"make vi use bash, not fish, since vi relies on some bash functionality, for
+"some tools
+if &shell =~# 'fish$'
+    set shell=sh
+endif
+
+
 let g:spf13_bundle_groups=['general', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
-
-
-
-
-
 let g:pf13_no_wrapRelMotion = 1
 let g:spf13_no_fastTabs = 1
-
 let g:spf13_no_keyfixes =  1
 

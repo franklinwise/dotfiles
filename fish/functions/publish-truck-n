@@ -1,0 +1,26 @@
+function publish-truck-n --description "Publish truck-n iOS app"
+
+set KEY ~/.ssh/fw_oregon_kn
+set REMOTE "franklin@gw.serv-n.com"
+set ROOT ~/src/dply/truck-n
+
+echo "Copying Truck-n.ipa"
+scp -i $KEY  $ROOT/Truck-n.ipa $REMOTE:~/dply/
+
+echo "Copying Truck-n.plist"
+scp -i $KEY $ROOT/Truck-n.plist $REMOTE:~/dply/
+
+echo "Copying Truck-n_Icon_76.png"
+scp -i $KEY $ROOT/Truck-n_Icon_76.png $REMOTE:~/dply/
+
+echo "Copying Truck-n_Icon_512.png"
+scp -i $KEY $ROOT/Truck-n_Icon_512.png $REMOTE:~/dply/
+
+echo "Copying Truck-n.html Deployment Page"
+scp -i $KEY $ROOT/Truck-n.html $REMOTE:~/dply/
+
+echo "Execute Remote Script"
+ssh -i $KEY $REMOTE -t './deploy-truck-n.sh; exit;'•
+
+end
+

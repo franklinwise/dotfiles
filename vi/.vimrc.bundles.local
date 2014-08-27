@@ -1,7 +1,9 @@
 Plugin 'fatih/vim-go'
 "Bundle 'vim-scripts/fish.vim'
 Plugin 'dag/vim-fish'
-
+"Change color schemes with F8 the vim-colorscheme-switcher relies on vim-misc
+Plugin 'xolox/vim-colorscheme-switcher'
+Plugin 'xolox/vim-misc'
 ""REMOVE
 "auto completed braces frustrate me
 UnBundle 'spf13/vim-autoclose'

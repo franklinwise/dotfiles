@@ -1,5 +1,7 @@
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 argglobal
+nnoremap <buffer> <silent> K :GoDoc
+nnoremap <buffer> <silent> gd :GoDef
 setlocal keymap=
 setlocal noarabic
 setlocal autoindent
@@ -13,8 +15,8 @@ setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=#%s
+setlocal comments=s1:/*,mb:*,ex:*/,://
+setlocal commentstring=//\ %s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -28,10 +30,10 @@ setlocal define=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'sh'
-setlocal filetype=sh
+setlocal errorformat=%-G#\ %.%#,%-G%.%#panic:\ %m,%A%f:%l:%c:\ %m,%A%f:%l:\ %m,%C%*\\s%m,%-G%.%#
+setlocal noexpandtab
+if &filetype != 'go'
+setlocal filetype=go
 endif
 setlocal foldcolumn=0
 setlocal foldenable
@@ -44,31 +46,31 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=tcq
+setlocal formatoptions=cq
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
 setlocal iminsert=2
 setlocal imsearch=2
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=GetShIndent()
-setlocal indentkeys=0{,0},!^F,o,O,e,0=then,0=do,0=else,0=elif,0=fi,0=esac,0=done,),0=;;,0=;&,0=fin,0=fil,0=fip,0=fir,0=fix
+setlocal indentexpr=GoIndent(v:lnum)
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,<:>,0=},0=)
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255,.
+setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal list
 setlocal nomacmeta
-setlocal makeprg=
+setlocal makeprg=go\ build
 setlocal matchpairs=(:),{:},[:]
 setlocal modeline
 setlocal modifiable
 setlocal nrformats=octal,hex
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=
+setlocal omnifunc=go#complete#Complete
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
@@ -90,8 +92,8 @@ setlocal statusline=%!airline#statusline(1)
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'sh'
-setlocal syntax=sh
+if &syntax != 'go'
+setlocal syntax=go
 endif
 setlocal tabstop=4
 setlocal tags=
@@ -104,13 +106,13 @@ setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 18 - ((17 * winheight(0) + 28) / 56)
+let s:l = 29 - ((28 * winheight(0) + 29) / 58)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-18
-normal! 07|
-lcd ~/
+29
+normal! 0
+lcd ~/src/go/src/github.com/krave-n/go/trynk/handling
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

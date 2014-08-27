@@ -13,9 +13,7 @@ set wildmenu	"auto completion for command menu
 
 syntax enable	"enables sytax processing
 
-let g:molokai_original = 1
-color peaksea
-"
+
 "set shell=bash\ --login
 
 "LEADER key remap
@@ -23,9 +21,16 @@ let mapleader=","       " leader is comma, rather than \
 
 "SEARCH
 set hlsearch	"highlight search matches
-" turn off search highlight
+" clear search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
+" prepare for a copy operation
+nnoremap <leader>c :set nu!<CR>:set nolist<CR>i
+" done copying
+nnoremap <leader>d :set nu<CR>:set list<CR>
+
+" enable easy pasting
+nnoremap <leader>p :set paste<CR>
 "REMAP ESCAPE
 inoremap <F12> <esc> 	"make f12 trigger escape in edit mode	
 "nnoremap = normal mode mapping
@@ -37,11 +42,51 @@ let g:go_highlight_space_tab_error = 0
 
 "http://learnvimscriptthehardway.stevelosh.com/chapters/12.html
 "use hemisu colorscheme for markdown
-autocmd BufNewFile,BufRead *.md colorscheme hemisu
-autocmd BufEnter *.md :set background=light
+"autocmd BufNewFile,BufRead *.md colorscheme hemisu
+autocmd FileType markdown setlocal background=light
+autocmd FileType markdown colorscheme hemisu
+
+autocmd FileType fish compiler fish
+autocmd FileType fish setlocal textwidth=79
+autocmd FileType fish setlocal foldmethod=expr
+
+autocmd FileType go color felisex
+
+let g:molokai_original = 1
+color peaksea
 
 " Syntax of these languages is fussy over tabs Vs spaces
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
+if &term =~ "xterm" 
+	set t_Co=16 
+endif 
 
- "set term=ansi "otherwise arrow keys cause letters ABCD to be written
+"mac vim
+set transparency=10
+
+"ConqueTerm plugin for running bash inside mac vim
+if !exists('g:ConqueTerm_ToggleKey')
+	let g:ConqueTerm_ToggleKey = '<F11>'
+endif 
+
+nnoremap <leader>. :ConqueTerm bash<CR>
+set guifont=Menlo\ Regular:h13
+
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap <F1> <ESC>  
+nnoremap <F2> <F1>  

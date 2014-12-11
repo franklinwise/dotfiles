@@ -13,7 +13,13 @@ set wildmenu	"auto completion for command menu
 
 syntax enable	"enables sytax processing
 
+" Odd file extension mappings
+" hbs = handle bar templates, look like html
+autocmd BufNewFile,BufRead, *.hbs set filetype=html
 
+" disable the help key, so frustrating
+map <F1> <Esc>
+imap <F1> <Esc>
 "set shell=bash\ --login
 
 "LEADER key remap
@@ -45,12 +51,13 @@ let g:go_highlight_space_tab_error = 0
 "autocmd BufNewFile,BufRead *.md colorscheme hemisu
 autocmd FileType markdown setlocal background=light
 autocmd FileType markdown colorscheme hemisu
+autocmd FileType markdown setlocal wrap linebreak nolist
 
 autocmd FileType fish compiler fish
 autocmd FileType fish setlocal textwidth=79
 autocmd FileType fish setlocal foldmethod=expr
 
-autocmd FileType go color felisex
+autocmd FileType go colorscheme felisex
 
 let g:molokai_original = 1
 color peaksea
@@ -63,7 +70,7 @@ if &term =~ "xterm"
 endif 
 
 "mac vim
-set transparency=10
+set transparency=8
 
 "ConqueTerm plugin for running bash inside mac vim
 if !exists('g:ConqueTerm_ToggleKey')

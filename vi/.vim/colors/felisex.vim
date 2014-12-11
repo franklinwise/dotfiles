@@ -51,9 +51,9 @@ hi Normal ctermbg=Black ctermfg=White cterm=NONE guibg=Black guifg=#eeeeee gui=n
 " Vim >= 7.0 specific colors {{{1
 if v:version >= 700
   " Cursor colors {{{2
-  hi Cursor ctermbg=DarkYellow ctermfg=fg guibg=LightYellow guifg=bg gui=none
+  hi Cursor ctermbg=DarkYellow ctermfg=fg guibg=Orange guifg=bg gui=none
   hi CursorLine ctermbg=Black guibg=Black gui=underline
-  hi CursorColumn ctermbg=DarkGray guibg=Gray15 gui=none
+  hi CursorColumn ctermbg=DarkYellow guibg=Orange gui=none
   " only for Win32, IME status
   if has('multi_byte_ime')
     hi CursorIM guibg=LightGreen guifg=NONE gui=none

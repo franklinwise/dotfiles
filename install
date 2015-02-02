@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# install and run with this command
+# curl -L https://raw.github.com/franklinwise/mools/master/dotfiles.sh | bash
+
+DOTDIR=$HOME/src/fw/dotfiles
+
+if [! -d $DOTDIR ]; then
+    	echo "franklinwise/dotfiles not found, pulling from github."
+	git clone https://github.com/franklinwise/dotfiles.git $DOTDIR`
+fi
+
+cd $DOTDIR
+
+set -e
+
+CONFIG="install.conf.yaml"
+DOTBOT_DIR="dotbot"
+
+DOTBOT_BIN="bin/dotbot"
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+cd "${BASEDIR}"
+git submodule update --init --recursive "${DOTBOT_DIR}"
+
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"

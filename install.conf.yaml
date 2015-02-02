@@ -1,17 +1,24 @@
+---
 - clean: ['~']
 
 - link:
-	~/.bashrc: home/bashrc
-	~/.config: homee/config/
-	~/.vim: home/vim 
-	~/.vim-go: home/vim-go 
-	~/.vimrc: home/vimrc 
-	~/.vimrc.before: home/vimrc.before
-	~/.vimrc.before.local: home/vimrc.before.local 
-	~/.vimrc.local: home/vimrc.local 
-	~/.vimrc.bundles: home/vimrc.bundles 
-	~/.vimrc.bundles.default: home/vimrc.bundles.default 
-	~/.vimrc.bundles.local: home/vimrc.bundles.local 
+    ~/.bashrc: home/bashrc
+    ~/.gitconfig: 
+      path: home/gitconfig
+      force: true
+    ~/.config: 
+      path: home/config/
+      force: true
+    ~/.oh-my-fish: home/oh-my-fish/
+    ~/.bin: home/bin/
+    ~/.vim: home/vim/
+    ~/.vim-go: home/vim-go 
+    ~/.vimrc: home/vimrc 
+    ~/.vimrc.before: home/vimrc.before
+    ~/.vimrc.before.local: home/vimrc.before.local 
+    ~/.vimrc.local: home/vimrc.local 
+    ~/.vimrc.bundles: home/vimrc.bundles 
+    ~/.vimrc.bundles.default: home/vimrc.bundles.default 
+    ~/.vimrc.bundles.local: home/vimrc.bundles.local 
 
-- shell: 
-	- [git submodule update --init --recursive, Installing and Updating submodules]
+- shell: []

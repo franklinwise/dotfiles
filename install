@@ -1,13 +1,17 @@
 #!/bin/bash
 
 # install and run with this command
-# curl -L https://raw.github.com/franklinwise/mools/master/dotfiles.sh | bash
+# curl -L https://raw.github.com/franklinwise/dotfiles/master/install | bash
 
 DOTDIR=$HOME/src/fw/dotfiles
 
-if [! -d $DOTDIR ]; then
+if [ ! -d $DOTDIR ]; then
     	echo "franklinwise/dotfiles not found, pulling from github."
-	git clone https://github.com/franklinwise/dotfiles.git $DOTDIR`
+	if [ ! -a $HOME/.gitconfig ]; then 
+		# .ssh keys need to be set up outside of this script
+		curl -o $HOME/.gitconfig -L https://raw.github.com/franklinwise/dotfiles/master/home/gitconfig  
+	fi
+	git clone https://github.com/franklinwise/dotfiles.git $DOTDIR
 fi
 
 cd $DOTDIR
@@ -21,6 +25,8 @@ DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "${BASEDIR}"
-git submodule update --init --recursive "${DOTBOT_DIR}"
+git submodule update --init --recursive "${DOTBOT_DIR}/"
+
+echo "Basedir set to ${BASEDIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"

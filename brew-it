@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#requires xcode to be installed and the xcode terminal tools to be installed
+
+#install xcode command line tools
+#xcode-select --install
+
+#ensure brew is installed
+if [ command -v brew >/dev/null 2>&1 ]; then
+	echo "Brew not installed. Installing Brew..." 
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	
+	brew doctor
+
+	# so that brew install does not require root privledge
+	sudo chown -R $USER /usr/local/*
+fi
+
+echo "Installing Homebrew packages..."
+brew update
+
+# http://robots.thoughtbot.com/brewfile-a-gemfile-but-for-homebrew
+# homebrew/boneyard provides `brew bundle` and `brew services`
+brew tap homebrew/boneyard
+brew bundle
+
+# to install apps like chrome that aren't development packages
+# https://github.com/caskroom/homebrew-cask
+brew install caskroom/cask/brew-cask
+
+# examples
+#brew cask search chrome
+#brew cask install google-chrome
+
+#make fish default shell
+#chsh -s /usr/local/bin/fish

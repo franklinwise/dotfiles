@@ -3,16 +3,18 @@
 
 - link:
     ~/.bashrc: home/bashrc
-    ~/.gitconfig: 
-      path: home/gitconfig
-      force: true
+    ~/.bash_profile: home/bash_profile
+    ~/.bin: home/bin/
+    ~/.chef: home/chef/
     ~/.config: 
       path: home/config/
       force: true
+    ~/.gitconfig: 
+      path: home/gitconfig
+      force: true
     ~/.oh-my-fish: home/oh-my-fish/
-    ~/.bin: home/bin/
     ~/.vim: home/vim/
-    ~/.vim-go: home/vim-go 
+    ~/.vim-go: home/vim-go/ 
     ~/.vimrc: home/vimrc 
     ~/.vimrc.before: home/vimrc.before
     ~/.vimrc.before.local: home/vimrc.before.local 
@@ -20,5 +22,20 @@
     ~/.vimrc.bundles: home/vimrc.bundles 
     ~/.vimrc.bundles.default: home/vimrc.bundles.default 
     ~/.vimrc.bundles.local: home/vimrc.bundles.local 
+    ~/.vagrant.d: home/vagrant.d/
 
-- shell: []
+- shell:
+    -
+      - "source ~/.bashrc"
+      - "Sourced ~/.bashrc"
+    -
+      - "open home/terminal/FranklinBlack.terminal"
+      - "Installed Terminal Theme: FranklinBlack"
+    -
+      - "sleep 1"
+      - "Waiting for terminal to launch"
+    -
+      - "defaults write com.apple.terminal \"Default Window Settings\" -string \"FranklinBlack\""
+      - "Setting default theme to FranklinBlack"
+    -
+      - ""

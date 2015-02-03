@@ -1,0 +1,177 @@
+#!/bin/bash
+
+if [ "$(uname -s)" != "Darwin" ]; then
+  exit 0
+fi
+
+
+echo "Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+#echo "Disable the 'Are you sure you want to open this application?' dialog"
+#defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+#echo "Automatically illuminate built-in MacBook keyboard in low light"
+#defaults write com.apple.BezelServices kDim -bool true
+#echo "Turn off keyboard illumination when computer is not used for 5 minutes"
+#defaults write com.apple.BezelServices kDimTime -int 300
+
+echo "Finder: show hidden files by default"
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+echo "Disable the warning when changing a file extension"
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+echo "Finder: Always open everything in column view"
+defaults write com.apple.Finder FXPreferredViewStyle clmv
+
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
+
+
+# Menu bar: hide the Time Machine, Volume, and User icons
+for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
+	defaults write "${domain}" dontAutoLoad -array \
+		"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+		"/System/Library/CoreServices/Menu Extras/Volume.menu" \
+		"/System/Library/CoreServices/Menu Extras/User.menu"
+done
+
+#
+# DOCK
+#
+# Setting the icon size of Dock items to 36 pixels for optimal size/screen-realestate
+defaults write com.apple.dock tilesize -int 36
+
+echo "Make Dock icons of hidden applications translucent"
+defaults write com.apple.dock showhidden -bool true
+
+#echo "Enable iTunes track notifications in the Dock"
+#defaults write com.apple.dock itunes-notifications -bool true
+
+
+#
+#
+#
+
+
+# Show remaining battery time; hide percentage
+defaults write com.apple.menuextra.battery ShowPercent -string "NO"
+defaults write com.apple.menuextra.battery ShowTime -string "YES"
+
+#echo "Show all filename extensions in Finder"
+#defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+echo "Use current directory as default search scope in Finder"
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+echo "Show Path bar in Finder"
+defaults write com.apple.finder ShowPathbar -bool true
+
+echo "Show Status bar in Finder"
+defaults write com.apple.finder ShowStatusBar -bool true
+
+echo "Expand save panel by default"
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+echo "Expand print panel by default"
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+echo "Disable shadow in screenshots"
+defaults write com.apple.screencapture disable-shadow -bool true
+
+echo "Save screenshots to ~/Desktop/screenshots"
+defaults write com.apple.screencapture location ~/Desktop/screenshots
+
+# Disable the warning before emptying the Trash
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+# Empty Trash securely by default
+defaults write com.apple.finder EmptyTrashSecurely -bool true
+echo "Show indicator lights for open applications in the Dock"
+defaults write com.apple.dock show-process-indicators -bool true
+
+# Don’t animate opening applications from the Dock
+# defaults write com.apple.dock launchanim -bool false
+
+###############################################################################
+# Screen                                                                      #
+###############################################################################
+
+# Require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+#echo "Disable press-and-hold for keys in favor of key repeat"
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+#echo "Set a blazingly fast keyboard repeat rate"
+#defaults write NSGlobalDomain KeyRepeat -int 0.02
+
+#echo "Set a shorter Delay until key repeat"
+#defaults write NSGlobalDomain InitialKeyRepeat -int 12
+
+# Set the Finder prefs for showing a few different volumes on the Desktop.
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+#echo "Disable auto-correct"
+#defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Disable opening and closing window animations
+# defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+echo "Enable AirDrop over Ethernet and on unsupported Macs running Lion"
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+
+echo "Display full POSIX path as Finder window title"
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+echo "Avoid creating .DS_Store files on network volumes"
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+echo "Disable the warning when changing a file extension"
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+#echo "Show item info below desktop icons"
+#/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
+
+echo "Enable snap-to-grid for desktop icons"
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+
+echo "Disable Safari’s thumbnail cache for History and Top Sites"
+defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
+
+echo "Make Safari’s search banners default to Contains instead of Starts With"
+defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
+
+# Remove useless icons from Safari’s bookmarks bar
+# defaults write com.apple.Safari ProxiesInBookmarksBar "()"
+
+echo "Add a context menu item for showing the Web Inspector in web views"
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+echo "Make ⌘ + F focus the search input in iTunes"
+defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
+
+# Disable smart quotes and smart dashes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+#echo "Show the ~/Library folder"
+#chflags nohidden ~/Library
+
+open $HOME/src/fw/dotfiles/home/terminal/FranklinBlack.terminal"
+echo "Installed Terminal Theme: FranklinBlack"
+
+echo "Waiting for terminal to launch"
+sleep 1
+
+echo "Setting default theme to FranklinBlack"
+defaults write com.apple.terminal "Default Window Settings" -string "FranklinBlack"
+
+echo "Setting startup window to FranklinBlack"
+defaults write com.apple.terminal "Startup Window Settings" -string "FranklinBlack"
+
+echo "Kill affected applications"
+for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done

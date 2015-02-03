@@ -34,3 +34,6 @@
     -
       - "chmod +x osx/osx-configure"
       - "make osx/osx-configure executable"
+    -
+      - "chmod +x osx/installTextMateLicense.sh"
+      - "make osx/installTextMateLicense.sh executable"

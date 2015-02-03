@@ -12,7 +12,6 @@
     ~/.gitconfig: home/gitconfig
     ~/.oh-my-fish: home/oh-my-fish/
     ~/.vim: home/vim/
-    ~/.vim-go: home/vim-go/ 
     ~/.vimrc: home/vimrc 
     ~/.vimrc.before: home/vimrc.before
     ~/.vimrc.before.local: home/vimrc.before.local 

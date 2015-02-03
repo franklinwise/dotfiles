@@ -15,9 +15,11 @@ set -xg VAGRANT_DEFAULT_PROVIDER "vmware_fusion"
 set -xg CHEF_DRIVER "vagrant"
 set -xg EDITOR "mvim"
 
-set -xg GEM_HOME "/Users/franklin/.chefdk/gem/ruby/2.1.0"
-set -xg GEM_PATH "/Users/franklin/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
+set -xg GEM_HOME "$HOME/.chefdk/gem/ruby/2.1.0"
+set -xg GEM_PATH "$HOME/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
 set -xg GEM_ROOT "/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
+#set -xg XDG_CONFIG_HOME "$HOME/.config"
+
 
 #
 # Environment variables

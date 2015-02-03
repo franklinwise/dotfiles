@@ -12,7 +12,7 @@
     ~/.gitconfig: 
       path: home/gitconfig
       force: true
-    ~/.gitignore_global: home/gitignore_global_osx
+    ~/.gitignore_global: home/osx.gitignore
     ~/.oh-my-fish: home/oh-my-fish/
     ~/.vim: home/vim/
     ~/.vim-go: home/vim-go/ 

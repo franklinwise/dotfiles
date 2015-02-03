@@ -27,6 +27,9 @@ brew update
 # https://github.com/caskroom/homebrew-cask
 brew install caskroom/cask/brew-cask
 
+# needed for fish functions
+brew install vcprompt
+
 # fish shell
 brew install fish 
 

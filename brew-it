@@ -27,8 +27,11 @@ brew update
 # https://github.com/caskroom/homebrew-cask
 brew install caskroom/cask/brew-cask
 
-# needed for fish functions
+# needed for version control info on the shell
 brew install vcprompt
+
+# zsh shell
+brew install zsh
 
 # fish shell
 brew install fish 
@@ -100,3 +103,5 @@ brew cask install dash
 
 #make fish default shell
 #chsh -s /usr/local/bin/fish
+#make zsh the default shell
+#chsh -s /usr/local/bin/zsh

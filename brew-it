@@ -50,6 +50,11 @@ brew install packer
 # github .gitignore templates
 brew install gibo
 
+# this directory is required by gibo
+if [ ! -d $HOME/.gitignore-boilerplates ]; then
+	mkdir $HOME/.gitignore-boilerplates
+fi
+
 brew install phash
 brew install cmake
 brew install cimg

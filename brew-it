@@ -19,18 +19,74 @@ fi
 echo "Installing Homebrew packages..."
 brew update
 
-# http://robots.thoughtbot.com/brewfile-a-gemfile-but-for-homebrew
-# homebrew/boneyard provides `brew bundle` and `brew services`
-brew tap homebrew/boneyard
-brew bundle
-
 # to install apps like chrome that aren't development packages
 # https://github.com/caskroom/homebrew-cask
 brew install caskroom/cask/brew-cask
 
-# examples
-#brew cask search chrome
-#brew cask install google-chrome
+# fish shell
+brew install fish 
+
+# macvim
+brew install macvim 
+
+# regular vim
+brew install vim
+
+# go sometimes pulls down mercurial repositories
+brew install mercurial
+
+brew install wget
+
+brew install tree
+
+# a better ack/grep
+brew install the_silver_searcher
+
+# Fast GitHub client
+brew install gh
+
+brew install packer
+
+# github .gitignore templates
+brew install gibo
+
+brew install phash
+brew install cmake
+brew install cimg
+brew install ffmpeg
+brew install lua
+
+# Fuzzy finder
+brew install fzf
+
+# Ruby version manager
+brew install rbenv
+
+# So `rbenv install` works
+brew install ruby-build
+
+# `brew services` without the warnings that come from the `brew services` in
+# homebrew/boneyard
+brew tap gapple/services
+
+brew tap caskroom/cask
+brew install brew-cask
+
+#brew cask install skype
+#brew cask install dropbox
+
+#vagrant and virtualbox vm
+brew cask install vagrant
+brew cask install virtualbox
+
+# video player
+brew cask install vlc
+
+#Terminal replacement
+brew cask install iterm2
+
+#Documentation for almost all languages, also snippet manager
+brew cask install dash
 
 #make fish default shell
 #chsh -s /usr/local/bin/fish

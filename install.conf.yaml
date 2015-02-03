@@ -28,3 +28,9 @@
     -
       - "source ~/.bashrc | bash"
       - "Sourced ~/.bashrc"
+    -
+      - "chmod +x brew-it"
+      - "making brew-it executable"
+    -
+      - "chmod +x osx/osx-configure"
+      - "make osx/osx-configure executable"

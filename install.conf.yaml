@@ -12,6 +12,9 @@
     ~/.gitconfig: home/gitconfig
     ~/.oh-my-fish: home/oh-my-fish/
     ~/.vim: home/vim/
+    ~/.vim-go:
+      path: home/vim-go/ 
+      force: true
     ~/.vimrc: home/vimrc 
     ~/.vimrc.before: home/vimrc.before
     ~/.vimrc.before.local: home/vimrc.before.local 
@@ -23,5 +26,5 @@
 
 - shell:
     -
-      - "source ~/.bashrc"
+      - "source ~/.bashrc | bash"
       - "Sourced ~/.bashrc"

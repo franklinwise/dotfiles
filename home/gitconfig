@@ -13,3 +13,5 @@
 	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
 [push]
 	default = simple
+[core]
+	excludesfile = /Users/wise/.gitignore_global

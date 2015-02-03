@@ -9,10 +9,7 @@
     ~/.config: 
       path: home/config/
       force: true
-    ~/.gitconfig: 
-      path: home/gitconfig
-      force: true
-    ~/.gitignore_global: home/osx.gitignore
+    ~/.gitconfig: home/gitconfig
     ~/.oh-my-fish: home/oh-my-fish/
     ~/.vim: home/vim/
     ~/.vim-go: home/vim-go/ 
@@ -29,4 +26,3 @@
     -
       - "source ~/.bashrc"
       - "Sourced ~/.bashrc"
-   

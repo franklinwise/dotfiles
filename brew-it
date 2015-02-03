@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ "$(uname -s)" != "Darwin" ]; then
+  exit 0
+fi
+
 #requires xcode to be installed and the xcode terminal tools to be installed
 
 #install xcode command line tools
@@ -44,8 +48,6 @@ brew install the_silver_searcher
 
 # Fast GitHub client
 brew install gh
-
-brew install packer
 
 # github .gitignore templates
 brew install gibo

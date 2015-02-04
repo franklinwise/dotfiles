@@ -1,19 +1,47 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export EDITOR=mvim
 
-# Set name of the theme to load.
+export GOPATH=$HOME/src/go
+export GOROOT=/usr/local/go
+
+export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
+export CHEF_DRIVER="vagrant"
+export EDITOR="mvim"
+
+export GEM_HOME="$HOME/.chefdk/gem/ruby/2.1.0"
+export GEM_PATH="$HOME/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
+export GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
+export XDG_CONFIG_HOME="$HOME/.config"
+export RBENV_ROOT=/usr/local/var/rbenv
+
+ZSH_CUSTOM=$HOME/.config/zsh/
+
+# Compilation flags
+export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+
 # Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 #https://github.com/robbyrussell/oh-my-zsh/wiki/themes
-ZSH_THEME="terminalparty"
-#"ys"
-#"wedisagree"
-#"sorin"
-#"gallois"
-#"fishy"
+ZSH_THEME="terminalparty-fw"
+#"ys" "wedisagree" "sorin" "gallois" "fishy"
 
 DEFAULT_USER="wise"
+
+# found in ~/.oh-my-zsh/plugins/*)
+# Add wisely, as too many plugins slow down shell startup.
+#https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins
+plugins=(git vagrant wd)
+
+# User configuration
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/go/bin:/opt/chefdk/bin/:/opt/chefdk/embedded/bin:/Users/wise/src/go/bin"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -48,35 +76,16 @@ ENABLE_CORRECTION="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-# User configuration
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/go/bin:/opt/chefdk/bin/:/opt/chefdk/embedded/bin:/Users/wise/src/go/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='mvim'
- fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
-# Compilation flags
- export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

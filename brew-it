@@ -85,8 +85,9 @@ brew tap gapple/services
 brew tap caskroom/cask
 brew install brew-cask
 
-#brew cask install skype
-#brew cask install dropbox
+#http://www.economyofeffort.com/2014/08/11/beyond-ctrl-remap-make-that-caps-lock-key-useful/
+brew cask install karabiner
+#seil is not necessary if you set the system preferences for caps lock to control
 
 #vagrant and virtualbox vm
 brew cask install vagrant

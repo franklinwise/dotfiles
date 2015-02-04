@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<root>
+	<item>
+		<name>Control Slash to Tilde </name>
+		<appendix>Reaching for the Tilde sucks, so control slash esp. when caps lock is mapped to control</appendix>
+		<identifier>private.control_slash_to_tilde</identifier>
+		<autogen>
+		  __KeyToKey__ KeyCode::SLASH, ModifierFlag::CONTROL_L, KeyCode::BACKQUOTE, ModifierFlag::SHIFT_L
+		</autogen>
+	</item>
+</root>

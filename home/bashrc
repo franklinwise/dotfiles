@@ -6,13 +6,6 @@ export GIT_PS1_SHOWDIRTYSTATE=1 #show dirty state of git in command prompt
 ROOT=/Users/franklin/src/scripts
 #SSH 
 
-alias splunk='/Users/franklin/src/scripts/splunk.sh'
-alias jump='/Users/franklin/src/scripts/jump.sh'
-alias api-truck-n='/Users/franklin/src/scripts/w2a-api-truck-n.sh'
-alias mssql='/Users/franklin/src/scripts/w2a-mssql.sh'
-alias build='/Users/franklin/src/scripts/kn-build-01.sh'
-alias devJump='ssh -i /Users/franklin/.ssh/fw_dev_kn_aws franklin@dj.krave-n.com'
-
 alias publish-truck-n='/Users/franklin/src/scripts/deploy-truck-n.sh'
 
 #ALIAS 
@@ -27,6 +20,7 @@ alias mvim=$ROOT/mvim
 
 source ~/.git-prompt.sh
 
+[[ -r $HOME/.config/aliases ]] && . $HOME/.config/aliases
 
 # pip should only run if there is a virtualenv currently activated
 #export PIP_REQUIRE_VIRTUALENV=true

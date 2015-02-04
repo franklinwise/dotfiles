@@ -68,7 +68,8 @@ brew install cmake
 brew install cimg
 brew install ffmpeg
 brew install lua
-
+brew install git-extras
+ 
 # Fuzzy finder
 brew install fzf
 

@@ -1,0 +1,10 @@
+#!/bin/bash
+# can be run on most any shell providing vagrant is installed and in the path
+
+vagrant plugin install vagrant-vmware-fusion
+vagrant plugin license vagrant-vmware-fusion ~/.vagrant.d/license-vmware-fusion.lic
+
+vagrant plugin install vagrant-berkshelf
+vagrant plugin install vagrant-omnibus
+
+

@@ -1,0 +1,11 @@
+---
+driver:
+  name: vagrant
+
+platforms:
+  - name: ubuntu-12.04
+    driver:
+      box: hashicorp/precise64
+  - name: centos-6.6
+    driver:
+      box: kraveio/centos-6.6

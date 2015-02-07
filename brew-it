@@ -39,9 +39,6 @@ brew install fish
 # macvim
 brew install macvim 
 
-# regular vim
-brew install vim
-
 # go sometimes pulls down mercurial repositories
 brew install mercurial
 
@@ -73,18 +70,28 @@ brew install git-extras
 # Fuzzy finder
 brew install fzf
 
+# install brew version of ruby
+brew install ruby 
+
 # Ruby version manager
-brew install rbenv
-
+#brew install rbenv
 # So `rbenv install` works
-brew install ruby-build
-
-# `brew services` without the warnings that come from the `brew services` in
-# homebrew/boneyard
-brew tap gapple/services
+#brew install ruby-build
 
 brew tap caskroom/cask
 brew install brew-cask
+
+brew install gpg
+gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+
+# c++ library
+brew install boost
+
+# event notification library
+brew install libevent
+
+# nodejs
+brew install node
 
 #http://www.economyofeffort.com/2014/08/11/beyond-ctrl-remap-make-that-caps-lock-key-useful/
 brew cask install karabiner

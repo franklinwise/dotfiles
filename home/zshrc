@@ -2,6 +2,8 @@
 export ZSH=$HOME/.oh-my-zsh
 export EDITOR=mvim
 
+export MYGO=$HOME/src/go/src/github.com
+
 export GOPATH=$HOME/src/go
 export GOROOT=/usr/local/go
 
@@ -9,9 +11,10 @@ export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
 export CHEF_DRIVER="vagrant"
 export EDITOR="mvim"
 
-export GEM_HOME="$HOME/.chefdk/gem/ruby/2.1.0"
-export GEM_PATH="$HOME/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
-export GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
+##export GEM_HOME="$HOME/.chefdk/gem/ruby/2.1.0"
+##export GEM_PATH="$HOME/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
+##export GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export RBENV_ROOT=/usr/local/var/rbenv
 export ARCHFLAGS="-arch x86_64"
@@ -31,7 +34,7 @@ DEFAULT_USER="wise"
 #https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins
 plugins=(git vagrant wd)
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/go/bin:/opt/chefdk/bin/:/opt/chefdk/embedded/bin:/Users/wise/src/go/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/go/bin:/opt/chefdk/bin:/opt/chefdk/embedded/bin:/Users/wise/src/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

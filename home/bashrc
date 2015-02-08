@@ -1,7 +1,32 @@
+#!/bin/bash
+
+test -f ~/.profile && source ~/.profile
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+export PS1="\u@\h \w: "
+alias ls='command ls -G'
+alias splunk='splunk.sh'
+alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES;
+killall Finder /System/Library/CoreServices/Finder.app'
+alias hideHiddenFiles='defaults write com.apple.finder AppleShowAllFiles NO;
+killall Finder /System/Library/CoreServices/Finder.app'
+
+eval "$(chef shell-init bash)"
+
+
 #ENVIRONMENT
 export GOROOT=/usr/local/go
 export GOPATH=~/src/go
 export GIT_PS1_SHOWDIRTYSTATE=1 #show dirty state of git in command prompt
+
+# Set architecture flags
+export ARCHFLAGS="-arch x86_64"
+# Ensure user-installed binaries take precedence
+export PATH="/usr/local/bin:$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
 
 ROOT=/Users/franklin/src/scripts
 #SSH 
@@ -113,3 +138,4 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 # command
 unset MANPATH  # delete if you already modified MANPATH elsewhere in your config
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+

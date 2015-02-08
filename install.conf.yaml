@@ -15,6 +15,7 @@
       create: true
     ~/.oh-my-fish: home/oh-my-fish/
     ~/.oh-my-zsh: home/oh-my-zsh/
+    ~/.profile: home/profile
     ~/.vim: home/vim/
     ~/.vim-go:
       path: home/vim-go/

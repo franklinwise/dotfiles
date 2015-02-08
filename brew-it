@@ -70,19 +70,17 @@ brew install git-extras
 # Fuzzy finder
 brew install fzf
 
-# install brew version of ruby
-brew install ruby 
-
-# Ruby version manager
-#brew install rbenv
-# So `rbenv install` works
-#brew install ruby-build
+# install modern ruby version manager
+brew install rbenv ruby-build
 
 brew tap caskroom/cask
 brew install brew-cask
 
 brew install gpg
 gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+
+# video player
+brew cask install vlc
 
 # c++ library
 brew install boost
@@ -100,9 +98,7 @@ brew cask install karabiner
 #vagrant and virtualbox vm
 brew cask install vagrant
 brew cask install virtualbox
-
-# video player
-brew cask install vlc
+brew cask install chefdk
 
 #Terminal replacement
 brew cask install iterm2
@@ -110,7 +106,6 @@ brew cask install iterm2
 #Documentation for almost all languages, also snippet manager
 brew cask install dash
 
-#make fish default shell
-#chsh -s /usr/local/bin/fish
-#make zsh the default shell
-#chsh -s /usr/local/bin/zsh
+
+# make zsh the default shell
+chsh -s /usr/local/bin/zsh

@@ -14,7 +14,7 @@ alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false"
 
 # || true will ignore a failure
 alias vagup="vagrant destroy -f || true; rm -f Berksfile.lock; vagrant up;"
-
+alias vagend="vagrant destroy -f || true"
 
 #######
 # Git

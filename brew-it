@@ -7,7 +7,7 @@ fi
 #requires xcode to be installed and the xcode terminal tools to be installed
 
 #install xcode command line tools
-#xcode-select --install
+xcode-select --install
 
 #ensure brew is installed
 if [ command -v brew >/dev/null 2>&1 ]; then
@@ -20,7 +20,7 @@ if [ command -v brew >/dev/null 2>&1 ]; then
 	sudo chown -R $USER /usr/local/*
 fi
 
-echo "Installing Homebrew packages..."
+echo "Updating Homebrew packages..."
 brew update
 
 # to install apps like chrome that aren't development packages
@@ -34,7 +34,7 @@ brew install vcprompt
 brew install zsh
 
 # fish shell
-brew install fish 
+# brew install fish 
 
 # macvim
 brew install macvim 
@@ -49,8 +49,8 @@ brew install tree
 # a better ack/grep
 brew install the_silver_searcher
 
-# Fast GitHub client
-brew install gh
+# Fast GitHub client in go
+# brew install gh
 
 # github .gitignore templates
 brew install gibo
@@ -59,6 +59,10 @@ brew install gibo
 if [ ! -d $HOME/.gitignore-boilerplates ]; then
 	mkdir $HOME/.gitignore-boilerplates
 fi
+
+# http://www.imagemagick.org/
+brew install imagemagick
+
 
 brew install phash
 brew install cmake
@@ -72,6 +76,8 @@ brew install fzf
 
 # install modern ruby version manager
 brew install rbenv ruby-build
+
+rbenv install 2.2.0
 
 brew tap caskroom/cask
 brew install brew-cask
@@ -106,6 +112,21 @@ brew cask install iterm2
 #Documentation for almost all languages, also snippet manager
 brew cask install dash
 
+# VIPS imaging library 
+# https://github.com/jcupitt/ruby-vips/wiki/installation-on-various-platforms
+brew tap homebrew/science
+brew install vips
+
+# for editing gifs
+brew install giflib
+
+# http://docs.oracle.com/cd/E37670_01/E41138/html/ch11s07.html
+# https://github.com/brona/iproute2mac
+brew tap brona/iproute2mac
+brew install iproute2mac
+
+# IRC client
+brew cask install limechat
 
 # make zsh the default shell
 chsh -s /usr/local/bin/zsh

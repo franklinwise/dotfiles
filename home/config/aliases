@@ -1,12 +1,20 @@
 
 alias dotfiles="cd ~/.dotfiles"
-alias dotedit="mvim ~/.dotfiles/"
-alias dr=". ~/.zshrc"
+alias dotedit="mvim ~/.dotfiles/home/zshrc"
+alias rd=". ~/.zshrc"
 alias src="cd ~/src"
 
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles -bool true"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false"
 
+# true or false
+alias securetrash="defaults write com.apple.finder EmptyTrashSecurely -bool "
+
+########
+#  Go
+########
+
+alias mygo="cd $MYGO"
 
 #######
 # Vagrant
@@ -14,7 +22,7 @@ alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false"
 
 # || true will ignore a failure
 alias vagup="vagrant destroy -f || true; rm -f Berksfile.lock; vagrant up;"
-alias vagend="vagrant destroy -f || true"
+alias vagdown="vagrant destroy -f || true"
 
 #######
 # Git

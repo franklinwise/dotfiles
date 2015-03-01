@@ -1,0 +1,13 @@
+# install common node packages
+
+# install yoeman
+npm install -g yo
+
+# grunt
+npm install -g grunt-cli
+
+# bower
+npm install -g bower
+
+# confirm install
+yo --version && bower --version && grunt --version

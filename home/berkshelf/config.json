@@ -3,7 +3,7 @@
 	"cookbook":{
 		"copyright":"Franklin Wise",
 		"email":"",
-		"license":"MIT License"
+		"license":"mit"
 	},
 	"allowed_licenses":[],
 	"raise_license_exception":false,

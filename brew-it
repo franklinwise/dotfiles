@@ -70,7 +70,8 @@ brew install cimg
 brew install ffmpeg
 brew install lua
 brew install git-extras
- 
+
+
 # Fuzzy finder
 brew install fzf
 
@@ -87,6 +88,9 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 
 # video player
 brew cask install vlc
+
+# visual diff
+brew cask install p4merge
 
 # c++ library
 brew install boost

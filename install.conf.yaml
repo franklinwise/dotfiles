@@ -2,6 +2,7 @@
 - clean: ['~']
 
 - link:
+    /usr/local/bin/p4merge: osx/p4merge.sh
     ~/.bashrc: home/bashrc
     ~/.bash_profile: home/bash_profile
     ~/.berkshelf/config.json: 

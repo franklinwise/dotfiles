@@ -4,6 +4,9 @@
 - link:
     ~/.bashrc: home/bashrc
     ~/.bash_profile: home/bash_profile
+    ~/.berkshelf/config.json: 
+      path: home/berkshelf/config.json
+      create : true
     ~/.bin: home/bin/
     ~/.chef: home/chef/
     ~/.config: 

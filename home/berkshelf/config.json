@@ -1,0 +1,26 @@
+{
+	"chef":{ },
+	"cookbook":{
+		"copyright":"Franklin Wise",
+		"email":"",
+		"license":"MIT License"
+	},
+	"allowed_licenses":[],
+	"raise_license_exception":false,
+	"vagrant":{
+		"vm":{
+			"box":"kraveio/centos-6.6",
+			"box_url":"https://atlas.hashicorp.com/kraveio/boxes/centos-6.6/1.0.3/todo.box",
+			"forward_port":{},
+			"network":{
+				"private_network": {
+				"type" : "dhcp"
+				}
+			},
+			"provision":"chef_zero"
+		}
+	},
+	"ssl":{
+		"verify":false
+	}
+}

@@ -12,6 +12,7 @@ set showmatch  	"highlights matching braces
 set wildmenu	"auto completion for command menu
 
 let g:NERDTreeShowHidden=0
+let g:NERDTreeQuitOnOpen=0
 
 syntax enable	"enables sytax processing
 

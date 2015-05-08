@@ -17,6 +17,10 @@ syntax enable	"enables sytax processing
 " hbs = handle bar templates, look like html
 " autocmd BufNewFile,BufRead, *.hbs set filetype=html
 
+autocmd BufNewFile,BufRead, *.tf colorscheme felisex
+autocmd BufNewFile,BufRead, *.json.j2 set filetype=json
+
+
 " disable the help key, so frustrating
 map <F1> <Esc>
 imap <F1> <Esc>

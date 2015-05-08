@@ -62,8 +62,6 @@ fi
 
 # http://www.imagemagick.org/
 brew install imagemagick
-
-
 brew install phash
 brew install cmake
 brew install cimg
@@ -110,6 +108,9 @@ brew cask install vagrant
 brew cask install virtualbox
 brew cask install chefdk
 
+#docker
+brew install boot2docker
+
 #Terminal replacement
 brew cask install iterm2
 
@@ -131,6 +132,10 @@ brew install iproute2mac
 
 # IRC client
 brew cask install limechat
+
+sudo easy_install pip
+sudo pip install ansible --quiet
+sudo pip install --upgrade bumpversion
 
 # make zsh the default shell
 chsh -s /usr/local/bin/zsh

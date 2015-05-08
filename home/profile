@@ -4,3 +4,10 @@ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/opt/libxml2/lib/pkgco
 
 #for rubenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+####################
+###  DOCKER ENV   
+####################
+
+[[ -r $HOME/.boot2docker/env ]] && . $HOME/.boot2docker/env
+

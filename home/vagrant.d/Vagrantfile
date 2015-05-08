@@ -2,10 +2,10 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
-	config.omnibus.chef_version = :latest
+#	config.omnibus.chef_version = :latest
 	
 #	enabling berkshelf here breaks test kitchen
-#	config.berkshelf.enabled = true
+	config.berkshelf.enabled = false
 
 	config.vm.provider "vmware_fusion" do |v|
 #		v.vmx["memsize"] = "512"

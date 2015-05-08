@@ -9,6 +9,7 @@
       path: home/berkshelf/config.json
       create : true
     ~/.bin: home/bin/
+    ~/.boot2docker/env: home/boot2docker/env
     ~/.chef: home/chef/
     ~/.config: 
       path: home/config/

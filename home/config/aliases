@@ -3,7 +3,7 @@ alias dotfiles="cd ~/.dotfiles"
 alias dotedit="mvim ~/.dotfiles/home/zshrc"
 alias rd=". ~/.zshrc"
 alias src="cd ~/src"
-alias sourcechef=". ~/.chef/env"
+alias dotchef=". ~/.chef/env"
 
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles -bool true"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false"
@@ -24,6 +24,9 @@ alias mygo="cd $MYGO"
 # || true will ignore a failure
 alias vagup="vagrant destroy -f || true; rm -f Berksfile.lock; vagrant up;"
 alias vagdown="vagrant destroy -f || true"
+alias vagip='$(vagrant ssh -c "ip address show eth0 | grep \"inet \" | sed -e \"s/^.*inet //\" -e \"s/\/.*$//\"")'
+alias vagprov="vagrant provision"
+alias vagssh="vagrant ssh"
 
 #######
 # Git
@@ -34,6 +37,12 @@ alias gcom="git commit -m"
 alias gs="git status"
 alias gdiff="git diff | vim"
 alias gpu="git push;git status;"
+
+# http://www.vogella.com/tutorials/Git/article.html#submodules
+alias gpull="git pull --recurse-submodules && git submodule status"
+
+# http://stackoverflow.com/questions/9189575/git-submodule-tracking-latest
+alias gaddsub="git submodule add -b master" #git@github.com:repo/proj localfoler/proj
 
 # from http://tjholowaychuk.tumblr.com/post/26904939933/git-extras-introduction-screencast
 
@@ -50,3 +59,8 @@ alias gpom="git pull origin master"
 # alias gba="git branch -a"
 # alias gcp="git cherry-pick"
 
+
+##################
+# Terraform
+##################
+alias tf="terraform"

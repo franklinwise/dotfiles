@@ -1,6 +1,18 @@
+
+
+##################
+#  SOURCE PROFILE
+##################
+
+[[ -r $HOME/.boot2docker/env ]] && . $HOME/.boot2docker/env
+
+##################
+#  CHEF
+##################
+
 export GEM_HOME="$HOME/.chefdk/gem/ruby/2.1.0"
 export GEM_PATH="$HOME/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
 export GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
 
-export PATH="$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:/opt/chefdk/embedded/bin:$PATH"
+export PATH="/opt/chefdk/bin:/opt/chefdk/embedded/bin:$HOME/.chefdk/gem/ruby/2.1.0/bin:$PATH"
 

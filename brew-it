@@ -37,7 +37,7 @@ brew install zsh
 # brew install fish 
 
 # macvim
-brew install macvim 
+brew install macvim --with-cscope --with-lua --override-system-vim
 
 # go sometimes pulls down mercurial repositories
 brew install mercurial

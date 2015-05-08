@@ -11,6 +11,8 @@ set cursorline	"highligh cursor line
 set showmatch  	"highlights matching braces	
 set wildmenu	"auto completion for command menu
 
+let g:NERDTreeShowHidden=0
+
 syntax enable	"enables sytax processing
 
 " Odd file extension mappings
@@ -91,10 +93,10 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+ " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+ " let g:ctrlp_use_caching = 0
 endif
 
 " bind K to grep word under cursor

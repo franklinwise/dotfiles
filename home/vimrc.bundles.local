@@ -1,10 +1,11 @@
 Plugin 'fatih/vim-go'
 "Bundle 'vim-scripts/fish.vim'
-Plugin 'dag/vim-fish'
+"Plugin 'dag/vim-fish'
 "Change color schemes with F8 the vim-colorscheme-switcher relies on vim-misc
 Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'xolox/vim-misc'
 Plugin 'git://github.com/mustache/vim-mustache-handlebars.git'
+Plugin 'rking/ag.vim'
 
 ""REMOVE
 "auto completed braces frustrate me

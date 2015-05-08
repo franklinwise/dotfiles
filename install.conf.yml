@@ -21,21 +21,24 @@
     ~/.oh-my-fish: home/oh-my-fish/
     ~/.oh-my-zsh: home/oh-my-zsh/
     ~/.profile: home/profile
-    ~/.vim: home/vim/
+    #~/.vim: home/vim/
     ~/.vim-go:
       path: home/vim-go/
       force: true
     ~/.vimrc:
       path: home/vimrc
-      force: true
+      force: false
     ~/.vimrc.before:
       path: home/vimrc.before
-      force: true
+      force: false
     ~/.vimrc.before.local: home/vimrc.before.local
-    ~/.vimrc.local: home/vimrc.local
+    ~/.vimrc.local: 
+      path: home/vimrc.local
+      force: true
+    ~/.vim/colors: home/vim/colors/
     ~/.vimrc.bundles:
       path: home/vimrc.bundles
-      force: true
+      force: false
     ~/.vimrc.bundles.default: home/vimrc.bundles.default
     ~/.vimrc.bundles.local: home/vimrc.bundles.local
     ~/.vagrant.d/Vagrantfile:

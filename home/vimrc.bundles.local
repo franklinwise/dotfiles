@@ -10,5 +10,10 @@ Plugin 'rking/ag.vim'
 ""REMOVE
 "auto completed braces frustrate me
 UnBundle 'spf13/vim-autoclose'
+UnBundle 'pythoncomplete'
+UnBundle 'jiangmiao/auto-pairs'
+
+"UnBundle 'majutsushi/tagbar'
+
 "removes those aweful left margin solid color every time you tab.
 UnBundle 'nathanaelkane/vim-indent-guides' 

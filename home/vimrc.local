@@ -13,6 +13,14 @@ set wildmenu	"auto completion for command menu
 
 let g:NERDTreeShowHidden=0
 let g:NERDTreeQuitOnOpen=0
+let g:neocomplcache_disable_auto_complete = 1
+let g:pymode_rope_completion=0
+let g:pymode_rope_completion_bind=''
+let g:pymode_rope_autoimport=0
+let g:pymode_rope=0
+" require double clicks for all nodes
+let g:NERDTreeMouseMode=1 
+let g:autopairs_enabled=0
 
 syntax enable	"enables sytax processing
 

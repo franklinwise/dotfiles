@@ -24,13 +24,29 @@ let g:autopairs_enabled=0
 
 syntax enable	"enables sytax processing
 
+"http://learnvimscriptthehardway.stevelosh.com/chapters/12.html
+"use hemisu colorscheme for markdown
+"autocmd BufNewFile,BufRead *.md colorscheme hemisu
+autocmd FileType markdown setlocal background=light
+autocmd FileType markdown colorscheme hemisu
+autocmd FileType markdown setlocal wrap linebreak nolist
+
 " Odd file extension mappings
 " hbs = handle bar templates, look like html
 " autocmd BufNewFile,BufRead, *.hbs set filetype=html
 
 autocmd BufNewFile,BufRead, *.tf colorscheme felisex
 autocmd BufNewFile,BufRead, *.json.j2 set filetype=json
+autocmd BufNewFile,BufRead, *.yml.j2 set filetype=yaml
+autocmd BufNewFile,BufRead, *.yml.j2 filetype indent off
+autocmd BufNewFile,BufRead, *.yml set filetype=ansible
+autocmd BufNewFile,BufRead, *.yml filetype indent off
 
+" Syntax of these languages are fussy over tabs Vs spaces
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType ansible setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType ruby setlocal ts=4 sts=4 sw=4 noexpandtab
 
 " disable the help key, so frustrating
 map <F1> <Esc>
@@ -52,6 +68,7 @@ nnoremap <leader>d :set nu<CR>:set list<CR>
 
 " enable easy pasting
 nnoremap <leader>p :set paste<CR>
+
 "REMAP ESCAPE
 inoremap <F12> <esc> 	"make f12 trigger escape in edit mode	
 "nnoremap = normal mode mapping
@@ -61,13 +78,6 @@ nnoremap <leader>b :!go build<CR>
 "go-tools disables the red blob if there's an extra spacce somewhere
 let g:go_highlight_space_tab_error = 0
 
-"http://learnvimscriptthehardway.stevelosh.com/chapters/12.html
-"use hemisu colorscheme for markdown
-"autocmd BufNewFile,BufRead *.md colorscheme hemisu
-autocmd FileType markdown setlocal background=light
-autocmd FileType markdown colorscheme hemisu
-autocmd FileType markdown setlocal wrap linebreak nolist
-
 autocmd FileType fish compiler fish
 autocmd FileType fish setlocal textwidth=79
 autocmd FileType fish setlocal foldmethod=expr
@@ -76,9 +86,6 @@ autocmd FileType go colorscheme felisex
 
 let g:molokai_original = 1
 color peaksea
-
-" Syntax of these languages is fussy over tabs Vs spaces
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 if &term =~ "xterm" 
 	set t_Co=16 
@@ -94,7 +101,6 @@ endif
 
 nnoremap <leader>. :ConqueTerm bash<CR>
 set guifont=Menlo\ Regular:h13
-
 
 " The Silver Searcher
 if executable('ag')

@@ -11,6 +11,10 @@ alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false"
 # true or false
 alias securetrash="defaults write com.apple.finder EmptyTrashSecurely -bool "
 
+# ansible
+alias newrole='/etc/ansible/roles/gotansible.newrole/newrole'
+alias galaxy='ansible-galaxy'
+
 ########
 #  Go
 ########

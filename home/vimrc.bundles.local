@@ -6,6 +6,7 @@ Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'xolox/vim-misc'
 Plugin 'git://github.com/mustache/vim-mustache-handlebars.git'
 Plugin 'rking/ag.vim'
+Plugin 'chase/vim-ansible-yaml'
 
 ""REMOVE
 "auto completed braces frustrate me

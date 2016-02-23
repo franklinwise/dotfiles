@@ -7,10 +7,15 @@
       create: true
     ~/.vimrc.before.local: home/vimrc.before.local
     ~/.vimrc.bundles.local: home/vimrc.bundles.local
-    ~/.vimrc.local: 
+    ~/.vimrc.local:
       path: home/vimrc.local
       force: true
-
+    ~/.config/aliases:
+      path: home/aliases
+      create: true
+    ~/.config/zsh:
+      path: home/zsh/
+      create: true
 - shell:
     -
       - "chmod +x brew-it"

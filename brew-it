@@ -66,20 +66,20 @@ if [ ! -d $HOME/.gitignore-boilerplates ]; then
 	mkdir $HOME/.gitignore-boilerplates
 fi
 
-# video player
-brew cask install vlc
+#Terminal replacement
+brew cask install iterm2
 
 # visual diff
 brew cask install p4merge
 
 # c++ library
-brew install boost
+# brew install boost
 
 # event notification library
-brew install libevent
+# brew install libevent
 
-#Terminal replacement
-brew cask install iterm2
+# video player
+brew cask install vlc
 
 #http://www.economyofeffort.com/2014/08/11/beyond-ctrl-remap-make-that-caps-lock-key-useful/
 brew cask install karabiner

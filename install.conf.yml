@@ -5,15 +5,19 @@
     ~/Library/Application Support/Karabiner/private.xml: 
       path: settings/karabiner/private.xml
       create: true
+    ~/.vimrc.before.local: home/vimrc.before.local
+    ~/.vimrc.bundles.local: home/vimrc.bundles.local
+    ~/.vimrc.local: 
+      path: home/vimrc.local
+      force: true
 
 - shell:
-    #-
-    #  - "source ~/.bashrc | bash"
-    #  - "Sourced ~/.bashrc"
     -
       - "chmod +x brew-it"
       - "making brew-it executable"
     -
       - "chmod +x osx/osx-configure"
       - "make osx/osx-configure executable"
-    
+    #-
+    #  - "source ~/.bashrc | bash"
+    #  - "Sourced ~/.bashrc"

@@ -14,10 +14,9 @@ if [ command -v brew >/dev/null 2>&1 ]; then
 	echo "Brew not installed. Installing Brew..." 
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	
-	brew doctor
-
+#	brew doctor
 	# so that brew install does not require root privledge
-	sudo chown -R $USER /usr/local/*
+#	sudo chown -R $USER /usr/local/*
 fi
 
 echo "Updating Homebrew packages..."

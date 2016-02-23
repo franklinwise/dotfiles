@@ -9,6 +9,8 @@ git config --global merge.tool p4merge
 git config --global mergetool.keepTemporaries false
 git config --global mergetool.prompt false
 
+# spf13 vim
+curl http://j.mp/spf13-vim3 -L -o - | sh
 
 # zsh needs to be setup to be used the first time, or the .zshrc file needs to be in place, indicating it's setup
 zsh

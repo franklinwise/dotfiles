@@ -7,9 +7,9 @@
       create: true
 
 - shell:
-    -
-      - "source ~/.bashrc | bash"
-      - "Sourced ~/.bashrc"
+    #-
+    #  - "source ~/.bashrc | bash"
+    #  - "Sourced ~/.bashrc"
     -
       - "chmod +x brew-it"
       - "making brew-it executable"

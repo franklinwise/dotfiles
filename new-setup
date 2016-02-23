@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# auto setup p4merge 
+# http://pempek.net/articles/2014/04/18/git-p4merge/
+
+wget -P /usr/local/bin http://pempek.net/files/git-p4merge/mac/p4merge
+chmod +x '/usr/local/bin/p4merge'
+git config --global merge.tool p4merge
+git config --global mergetool.keepTemporaries false
+git config --global mergetool.prompt false

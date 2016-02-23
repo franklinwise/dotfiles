@@ -53,6 +53,8 @@ brew install brew-cask
 brew install gpg
 gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 
+brew install git
+
 # a better ack/grep
 brew install the_silver_searcher
 
@@ -73,14 +75,6 @@ brew cask install iterm2
 # visual diff
 brew cask install p4merge
 
-# auto setup p4merge 
-# http://pempek.net/articles/2014/04/18/git-p4merge/
-
-# wget -P /usr/local/bin http://pempek.net/files/git-p4merge/mac/p4merge
-# chmod +x '/usr/local/bin/p4merge'
-# git config --global merge.tool p4merge
-# git config --global mergetool.keepTemporaries false
-# git config --global mergetool.prompt false
 
 # c++ library
 # brew install boost

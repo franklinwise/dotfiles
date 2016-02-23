@@ -3,10 +3,10 @@
 # install and run with this command
 # curl -L https://raw.github.com/franklinwise/dotfiles/master/install | bash
 
-DOTDIR=$HOME/src/fw/dotfiles
+DOTDIR=$HOME/.settings/dotfiles
 
 if [ ! -d $DOTDIR ]; then
-    	echo "franklinwise/dotfiles not found, pulling from github."
+    	echo ".settings/dotfiles not found, pulling from github."
 	if [ ! -a $HOME/.gitconfig ]; then 
 		# .ssh keys need to be set up outside of this script
 		curl -o $HOME/.gitconfig -L https://raw.github.com/franklinwise/dotfiles/master/home/gitconfig  

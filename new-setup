@@ -10,8 +10,11 @@ git config --global mergetool.keepTemporaries false
 git config --global mergetool.prompt false
 
 
-# interactive
-# zsh
+# zsh needs to be setup to be used the first time, or the .zshrc file needs to be in place, indicating it's setup
+zsh
 
 # make zsh the default shell
 chsh -s /usr/local/bin/zsh
+
+#setup oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

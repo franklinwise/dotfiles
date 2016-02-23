@@ -16,6 +16,9 @@
     ~/.config/zsh:
       path: home/zsh/
       create: true
+    ~/.config/terminal:
+      path: home/terminal/
+      create: true
 - shell:
     -
       - "chmod +x brew-it"

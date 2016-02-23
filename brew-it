@@ -46,6 +46,12 @@ brew install wget
 
 brew install tree
 
+brew tap caskroom/cask
+brew install brew-cask
+
+brew install gpg
+gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+
 # a better ack/grep
 brew install the_silver_searcher
 
@@ -53,51 +59,27 @@ brew install the_silver_searcher
 # brew install gh
 
 # github .gitignore templates
-brew install gibo
+# brew install gibo
 
 # this directory is required by gibo
 if [ ! -d $HOME/.gitignore-boilerplates ]; then
 	mkdir $HOME/.gitignore-boilerplates
 fi
 
-# http://www.imagemagick.org/
-brew install imagemagick
-brew install phash
-brew install cmake
-brew install cimg
-brew install ffmpeg
-brew install lua
-brew install git-extras
-
-
-# Fuzzy finder
-brew install fzf
-
-# install modern ruby version manager
-brew install rbenv ruby-build
-
-rbenv install 2.2.0
-
-brew tap caskroom/cask
-brew install brew-cask
-
-brew install gpg
-gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
-
-# video player
-brew cask install vlc
+#Terminal replacement
+brew cask install iterm2
 
 # visual diff
 brew cask install p4merge
 
 # c++ library
-brew install boost
+# brew install boost
 
 # event notification library
-brew install libevent
+# brew install libevent
 
-# nodejs
-brew install node
+# video player
+brew cask install vlc
 
 #http://www.economyofeffort.com/2014/08/11/beyond-ctrl-remap-make-that-caps-lock-key-useful/
 brew cask install karabiner
@@ -106,24 +88,10 @@ brew cask install karabiner
 #vagrant and virtualbox vm
 brew cask install vagrant
 brew cask install virtualbox
-brew cask install chefdk
+#brew cask install chefdk
 
 #docker
 brew install boot2docker
-
-#Terminal replacement
-brew cask install iterm2
-
-#Documentation for almost all languages, also snippet manager
-brew cask install dash
-
-# VIPS imaging library 
-# https://github.com/jcupitt/ruby-vips/wiki/installation-on-various-platforms
-brew tap homebrew/science
-brew install vips
-
-# for editing gifs
-brew install giflib
 
 # http://docs.oracle.com/cd/E37670_01/E41138/html/ch11s07.html
 # https://github.com/brona/iproute2mac
@@ -136,6 +104,37 @@ brew cask install limechat
 sudo easy_install pip
 sudo pip install ansible --quiet
 sudo pip install --upgrade bumpversion
+
+# nodejs
+# brew install node
+
+# Fuzzy finder
+#brew install fzf
+
+# install modern ruby version manager
+#brew install rbenv ruby-build
+#rbenv install 2.2.0
+
+#Documentation for almost all languages, also snippet manager
+# brew cask install dash
+
+## IMAGE Manipulation
+# http://www.imagemagick.org/
+# brew install imagemagick
+# brew install phash
+# brew install cmake
+# brew install cimg
+# brew install ffmpeg
+# brew install lua
+# brew install git-extras
+
+# VIPS imaging library 
+# https://github.com/jcupitt/ruby-vips/wiki/installation-on-various-platforms
+# brew tap homebrew/science
+# brew install vips
+
+# for editing gifs
+# brew install giflib
 
 # make zsh the default shell
 chsh -s /usr/local/bin/zsh

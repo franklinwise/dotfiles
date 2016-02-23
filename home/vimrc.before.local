@@ -9,7 +9,6 @@ autocmd BufEnter * NERDTreeMirror
 
 autocmd VimEnter * wincmd w
 
-
 let g:spf13_bundle_groups=['general', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
 let g:pf13_no_wrapRelMotion = 1
 let g:spf13_no_fastTabs = 1

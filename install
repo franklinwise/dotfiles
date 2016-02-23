@@ -6,12 +6,12 @@
 DOTDIR=$HOME/.settings/dotfiles
 
 if [ ! -d $DOTDIR ]; then
-    	echo ".settings/dotfiles not found, pulling from github."
-	if [ ! -a $HOME/.gitconfig ]; then 
-		# .ssh keys need to be set up outside of this script
-		curl -o $HOME/.gitconfig -L https://raw.github.com/franklinwise/dotfiles/master/home/gitconfig  
-	fi
-	git clone https://github.com/franklinwise/dotfiles.git $DOTDIR
+    	#echo ".settings/dotfiles not found, pulling from github."
+	#if [ ! -a $HOME/.gitconfig ]; then 
+	#	# .ssh keys need to be set up outside of this script
+	#	curl -o $HOME/.gitconfig -L https://raw.github.com/franklinwise/dotfiles/master/home/gitconfig  
+	#fi
+	#git clone https://github.com/franklinwise/dotfiles.git $DOTDIR
 fi
 
 cd $DOTDIR

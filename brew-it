@@ -10,14 +10,16 @@ fi
 xcode-select --install
 
 #ensure brew is installed
-if [ command -v brew >/dev/null 2>&1 ]; then
-	echo "Brew not installed. Installing Brew..." 
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Remove Old Brew?
+#if [ command -v brew >/dev/null 2>&1 ]; then
+#	echo "Brew not installed. Installing Brew..." 
 #	brew doctor
 	# so that brew install does not require root privledge
 #	sudo chown -R $USER /usr/local/*
-fi
+#fi
+# End Remove Old Brew
 
 echo "Updating Homebrew packages..."
 brew update

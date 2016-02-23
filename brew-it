@@ -102,6 +102,10 @@ brew install iproute2mac
 # IRC client
 brew cask install limechat
 
+# Sublime Text Editor
+brew tap caskroom/versions
+brew cask install sublime-text3
+
 sudo easy_install pip
 sudo pip install ansible --quiet
 sudo pip install --upgrade bumpversion

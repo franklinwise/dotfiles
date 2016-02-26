@@ -5,6 +5,7 @@
     ~/Library/Application Support/Karabiner/private.xml: 
       path: settings/karabiner/private.xml
       create: true
+    ~/.vim/colors: home/vim/colors
     ~/.vimrc.before.local: home/vimrc.before.local
     ~/.vimrc.bundles.local: home/vimrc.bundles.local
     ~/.vimrc.local:

@@ -1,9 +1,8 @@
 
 alias dotfiles="cd ~/.dotfiles"
-alias dotedit="mvim ~/.dotfiles/home/zshrc"
+alias dotedit="mvim ~/.zshrc"
 alias rd=". ~/.zshrc"
 alias src="cd ~/src"
-alias dotchef=". ~/.chef/env"
 
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles -bool true"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false"

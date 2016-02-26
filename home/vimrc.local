@@ -25,22 +25,37 @@ let g:autopairs_enabled=0
 syntax enable	"enables sytax processing
 
 "http://learnvimscriptthehardway.stevelosh.com/chapters/12.html
-"use hemisu colorscheme for markdown
-"autocmd BufNewFile,BufRead *.md colorscheme hemisu
-autocmd FileType markdown setlocal background=light
-autocmd FileType markdown colorscheme hemisu
-autocmd FileType markdown setlocal wrap linebreak nolist
+
+let g:molokai_original = 1
+color peaksea
+
+" TODO: pick default colorscheme and change the next line
+autocmd BufNewFile,BufRead,BufEnter * colorscheme peaksea
+
+" the bottom two should be the 'right' way
+autocmd BufEnter,BufNewFile *.md,*xml colorscheme hemisu
+autocmd BufEnter,BufNewFile *.md,*xml setlocal background=light
+autocmd BufLeave *.md,*xml colorscheme peaksea
+autocmd BufLeave *.md,*xml setlocal background=dark
+
+autocmd FileType go colorscheme felisex
+" markdown changes but then not sure how to get back when changing to another
+"autocmd BufNewFile,BufRead, *.md colorscheme hemisu
+"
+"autocmd FileType markdown setlocal background=light
+"autocmd FileType markdown colorscheme hemisu
+"autocmd FileType markdown setlocal wrap linebreak nolist
 
 " Odd file extension mappings
 " hbs = handle bar templates, look like html
 " autocmd BufNewFile,BufRead, *.hbs set filetype=html
 
-autocmd BufNewFile,BufRead, *.tf colorscheme felisex
-autocmd BufNewFile,BufRead, *.json.j2 set filetype=json
-autocmd BufNewFile,BufRead, *.yml.j2 set filetype=yaml
-autocmd BufNewFile,BufRead, *.yml.j2 filetype indent off
-autocmd BufNewFile,BufRead, *.yml set filetype=ansible
-autocmd BufNewFile,BufRead, *.yml filetype indent off
+autocmd BufNewFile,BufRead,BufEnter, *.tf colorscheme felisex
+autocmd BufNewFile,BufRead,BufEnter, *.json.j2 set filetype=json
+autocmd BufNewFile,BufRead,BufEnter, *.yml.j2 set filetype=yaml
+autocmd BufNewFile,BufRead,BufEnter, *.yml.j2 filetype indent off
+autocmd BufNewFile,BufRead,BufEnter, *.yml set filetype=ansible
+autocmd BufNewFile,BufRead,BufEnter, *.yml filetype indent off
 
 " Syntax of these languages are fussy over tabs Vs spaces
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -81,12 +96,6 @@ let g:go_highlight_space_tab_error = 0
 autocmd FileType fish compiler fish
 autocmd FileType fish setlocal textwidth=79
 autocmd FileType fish setlocal foldmethod=expr
-
-autocmd FileType go colorscheme felisex
-
-let g:molokai_original = 1
-color peaksea
-
 if &term =~ "xterm" 
 	set t_Co=16 
 endif 

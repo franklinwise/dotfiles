@@ -1,5 +1,5 @@
 #!/bin/sh
-#
+# https://orrsella.com/2013/08/10/git-using-different-user-emails-for-different-repositories/
 # A git hook to make sure user.email exists before committing
 
 EMAIL=$(git config user.email)

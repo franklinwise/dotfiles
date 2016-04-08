@@ -5,7 +5,6 @@
 ##################
 
 [[ -r $HOME/.profile ]] && . $HOME/.profile
-[[ -r $HOME/.ssh/env_secrets ]] && . $HOME/.ssh/env_secrets
 
 ##################
 #  PATH
@@ -70,7 +69,7 @@ source $ZSH/oh-my-zsh.sh
  fi
 
 ##################
-#  ENVIRONMENT
+#  ENVIRONMENT - Common
 ##################
 
 export EDITOR=mvim
@@ -92,11 +91,10 @@ export ARCHFLAGS="-arch x86_64"
 [[ -r $HOME/.zshrc.local ]] && . $HOME/.zshrc.local
 
 ##################
-#  RUBY
+#  ENV - GIT
 ##################
 
-#eval "$(rbenv init -)"
-#rbenv global 2.2.0
+export GIT_TEMPLATE_DIR=$HOME/.git/templates
 
 ##################
 #  ALIASES

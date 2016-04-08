@@ -21,6 +21,10 @@
     ~/.config/terminal:
       path: home/terminal/
       create: true
+    ~/.git/hooks/pre-commit:
+      path: home/git/hooks/pre-commit
+      create: true
+
 
 #- shell:
   #  -

@@ -34,9 +34,9 @@ autocmd BufNewFile,BufRead,BufEnter * colorscheme peaksea
 
 " the bottom two should be the 'right' way
 autocmd BufEnter,BufNewFile *.md,*xml colorscheme hemisu
-autocmd BufEnter,BufNewFile *.md,*xml setlocal background=light
+"autocmd BufEnter,BufNewFile *.md,*xml setlocal background=light
 autocmd BufLeave *.md,*xml colorscheme peaksea
-autocmd BufLeave *.md,*xml setlocal background=dark
+"autocmd BufLeave *.md,*xml setlocal background=dark
 
 autocmd FileType go colorscheme felisex
 " markdown changes but then not sure how to get back when changing to another

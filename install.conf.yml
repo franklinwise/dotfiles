@@ -2,6 +2,7 @@
 - clean: ['~']
 
 - link:
+    ~/.zshrc: home/zshrc
     ~/Library/Application Support/Karabiner/private.xml: 
       path: settings/karabiner/private.xml
       create: true
@@ -20,13 +21,14 @@
     ~/.config/terminal:
       path: home/terminal/
       create: true
-- shell:
-    -
-      - "chmod +x brew-it"
-      - "making brew-it executable"
-    -
-      - "chmod +x osx/osx-configure"
-      - "make osx/osx-configure executable"
+
+#- shell:
+  #  -
+  #    - "chmod +x brew-it"
+  #    - "making brew-it executable"
+  #  -
+  #    - "chmod +x osx/osx-configure"
+  #    - "make osx/osx-configure executable"
     #-
     #  - "source ~/.bashrc | bash"
     #  - "Sourced ~/.bashrc"

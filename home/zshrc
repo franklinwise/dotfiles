@@ -1,12 +1,73 @@
-#!/bin/zsh
-
-alias dotsource="source ~/.zshrc"
+#DEFAULT_USER="franklinwise"
 
 ##################
 #  SOURCE PROFILE
 ##################
 
 [[ -r $HOME/.profile ]] && . $HOME/.profile
+[[ -r $HOME/.ssh/env_secrets ]] && . $HOME/.ssh/env_secrets
+
+##################
+#  PATH
+##################
+
+#general path
+export PATH="$GOPATH/bin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:$GOROOT/bin:$HOME/Applications:$PATH"
+
+# specific additions
+export PATH="$PATH:/opt/terraform:~/etc/ansible/roles/gotansible.newrole"
+
+##################
+#  OH MY ZSH
+##################
+
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_CUSTOM=$HOME/.config/zsh/
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="terminalparty-fw"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories  much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+##################
+#  OH MY ZSH PLUGINS
+#
+#   found in ~/.oh-my-zsh/plugins/* [too many will slow things down]
+#   https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins
+##################
+
+plugins=(git vagrant wd)
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+
+# Preferred editor for local and remote sessions
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='mvim'
+ fi
 
 ##################
 #  ENVIRONMENT
@@ -16,65 +77,26 @@ export EDITOR=mvim
 export LANG=en_US.UTF-8
 export XDG_CONFIG_HOME="$HOME/.config"
 
-export ZSH=$HOME/.oh-my-zsh
-export ZSH_CUSTOM=$HOME/.config/zsh/
-
 export MYGO=$HOME/src/go/src/github.com
 export GOPATH=$HOME/src/go
 export GOROOT=/usr/local/go
 
-export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
+#export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
 export CHEF_DRIVER="vagrant"
-export EDITOR="mvim"
 
 export ARCHFLAGS="-arch x86_64"
 
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 # export RBENV_ROOT=/usr/local/var/rbenv
 
-##################
-#  PATH
-##################
-
-export PATH="$GOPATH/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:$GOROOT/bin:$HOME/Applications:$PATH"
+[[ -r $HOME/.zshrc.local ]] && . $HOME/.zshrc.local
 
 ##################
-#  PLUGINS
-#
-#   found in ~/.oh-my-zsh/plugins/* [too many will slow things down]
-#   https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins
+#  RUBY
 ##################
 
-plugins=(git vagrant wd)
-
-##################
-#  THEMES OH-MY-ZSH
-#
-#  Look in ~/.oh-my-zsh/themes/
-#  https://github.com/robbyrussell/oh-my-zsh/wiki/themes
-#  "ys" "wedisagree" "sorin" "gallois" "fishy"
-##################
-
-ZSH_THEME="terminalparty-fw"
-DEFAULT_USER="wise"
-
-source $ZSH/oh-my-zsh.sh
-
-###################
-
-# ZSH auto correct
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+#eval "$(rbenv init -)"
+#rbenv global 2.2.0
 
 ##################
 #  ALIASES
@@ -82,14 +104,4 @@ COMPLETION_WAITING_DOTS="true"
 
 [[ -r $HOME/.config/aliases ]] && . $HOME/.config/aliases
 
-
-## END ##
-
-##################
-#  RUBY
-##################
-
-eval "$(rbenv init -)"
-rbenv global 2.2.0
-
-
+alias dotsource="source ~/.zshrc"

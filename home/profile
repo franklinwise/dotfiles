@@ -1,10 +1,5 @@
-# profile
 
-#export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/opt/libxml2/lib/pkgconfig
-
-#for rubenv
-#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
+DEFAULT_USER="franklinwise"
 
 ####################
 ###  DOCKER ENV   

@@ -74,7 +74,14 @@ brew cask install iterm2
 
 # visual diff
 brew cask install p4merge
+# http://pempek.net/articles/2014/04/18/git-p4merge/
+# https://gist.github.com/tony4d/3454372
+# http://blogs.pdmlab.com/alexander.zeitler/articles/installing-and-configuring-p4merge-for-git-on-ubuntu/
 
+git config --global merge.tool p4mergeTool
+git config --global mergetool.p4mergetool.cmd "/Applications/p4merge.app/Contents/Resources/launchp4merge \$PWD/\$BASE \$PWD/\$REMOTE \$PWD/\$LOCAL \$PWD/\$MERGED"
+git config --global mergetool.p4mergetool.trustExitCode false
+git config --global mergetool.keepBackup false
 
 # c++ library
 # brew install boost

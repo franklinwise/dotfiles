@@ -7,6 +7,30 @@
 [[ -r $HOME/.profile ]] && . $HOME/.profile
 
 ##################
+#  ENVIRONMENT - Common
+##################
+
+export EDITOR=mvim
+export LANG=en_US.UTF-8
+export XDG_CONFIG_HOME="$HOME/.config"
+
+export MYGO=$HOME/src/go/src/github.com
+export GOPATH=$HOME/src/go
+export GOROOT=/usr/local/go
+
+#export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
+export CHEF_DRIVER="vagrant"
+
+export ARCHFLAGS="-arch x86_64"
+
+export AWS_REGION="us-west-2"
+
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export RBENV_ROOT=/usr/local/var/rbenv
+
+[[ -r $HOME/.zshrc.local ]] && . $HOME/.zshrc.local
+
+##################
 #  PATH
 ##################
 
@@ -68,27 +92,6 @@ source $ZSH/oh-my-zsh.sh
    export EDITOR='mvim'
  fi
 
-##################
-#  ENVIRONMENT - Common
-##################
-
-export EDITOR=mvim
-export LANG=en_US.UTF-8
-export XDG_CONFIG_HOME="$HOME/.config"
-
-export MYGO=$HOME/src/go/src/github.com
-export GOPATH=$HOME/src/go
-export GOROOT=/usr/local/go
-
-#export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
-export CHEF_DRIVER="vagrant"
-
-export ARCHFLAGS="-arch x86_64"
-
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-# export RBENV_ROOT=/usr/local/var/rbenv
-
-[[ -r $HOME/.zshrc.local ]] && . $HOME/.zshrc.local
 
 ##################
 #  ENV - GIT
